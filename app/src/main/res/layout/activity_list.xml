@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ListActivity">
+
+    <TextView
+        android:id="@+id/txt_encabezado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:text="@string/txt_resultado_buscar"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_resultado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_encabezado"
+        android:layout_centerHorizontal="true"
+        android:text="resultado"
+        android:textSize="20sp" />
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="715dp"
+        android:layout_below="@id/tv_resultado"
+        android:layout_marginTop="20dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+
+            <RelativeLayout
+                android:id="@+id/item1"
+                android:layout_width="356dp"
+                android:layout_height="99dp"
+                android:layout_margin="20dp"
+                android:gravity="center"
+                android:onClick="IrADescripcion"
+                android:paddingTop="10dp">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="138dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="0dp"
+                    app:srcCompat="@drawable/fotodell" />
+
+                <TextView
+                    android:id="@+id/titulo_list"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_toEndOf="@id/imageView"
+                    android:text="@string/txt_titulo" />
+
+                <TextView
+                    android:id="@+id/precio_list"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/titulo_list"
+                    android:layout_alignStart="@id/titulo_list"
+                    android:text="@string/precio"
+                    android:textSize="22dp" />
+
+            </RelativeLayout>
+
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+</RelativeLayout>

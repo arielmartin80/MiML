@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+<LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp"
+        android:orientation="vertical"
+        android:gravity="center"
+    >
+
+
+        <TextView
+            android:id="@+id/titulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+            android:text="@string/txt_titulo"
+            android:textSize="25dp"
+            />
+
+
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="348dp"
+            android:layout_height="301dp"
+            android:layout_below="@id/titulo"
+            android:layout_alignParentEnd="false"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="36dp"
+            android:src="@drawable/fotodell" />
+
+
+        <LinearLayout
+            android:id="@+id/datos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/img"
+            android:layout_centerHorizontal="true">
+
+            <TextView
+                android:id="@+id/nuevo_usado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/img"
+                android:layout_centerHorizontal="true"
+                android:text="Nuevo "
+                />
+
+            <TextView
+                android:id="@+id/garantia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/nuevo_usado"
+                android:layout_centerHorizontal="true"
+                android:layout_toRightOf="@id/nuevo_usado"
+                android:text="Con garantia " />
+
+            <TextView
+                android:id="@+id/finaliza1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="Finaliza: " />
+
+            <TextView
+                android:id="@+id/finaliza2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="24/06/2019" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/descripcion_texto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/img"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Procesador: Intel Core i5 540M (2533 MHz - 3067 MHz)
+RAM 4GB DDR3 (1066 MHz), Pantalla: LED 14.1 (1280x800), Batería 6 celdas (60000 mWh)
+Almacenamiento SSD 160GB, Tarjetas de video: Intel HD Graphics (Legacy) (Integrada)" />
+
+        <LinearLayout
+            android:id="@+id/opiniones"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/descripcion_texto"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/cantidad_opiniones"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="104 opiniones " />
+
+            <TextView
+                android:id="@+id/promedio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3 estrellas" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/precio"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/opiniones"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            >
+
+            <TextView
+                android:id="@+id/precio_titulo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="0dp"
+                android:text="Precio: "
+                android:textSize="30dp" />
+
+            <TextView
+                android:id="@+id/precio_cantidad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/precio_titulo"
+                android:layout_toRightOf="@id/precio_titulo"
+                android:text="$10000"
+                android:textSize="30dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/stock"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/precio"
+            android:layout_centerHorizontal="true">
+
+            <TextView
+                android:id="@+id/cantidad_inicial_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="Cantidad Inicial:" />
+
+            <TextView
+                android:id="@+id/cantidad_inicial"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/cantidad_inicial_text"
+                android:layout_toRightOf="@id/cantidad_inicial_text"
+                android:text="10" />
+
+            <TextView
+                android:id="@+id/cantidad_vendidos_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/cantidad_inicial"
+                android:layout_alignStart="@id/cantidad_inicial_text"
+                android:layout_centerHorizontal="true"
+                android:text="Cantidad Vendidos:" />
+
+            <TextView
+                android:id="@+id/cantidad_vendidos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/cantidad_vendidos_text"
+                android:layout_toRightOf="@id/cantidad_vendidos_text"
+                android:text="3" />
+
+            <TextView
+                android:id="@+id/cantidad_actual_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/cantidad_vendidos"
+                android:layout_alignStart="@id/cantidad_inicial_text"
+                android:text="Cantidad en Stock:" />
+
+            <TextView
+                android:id="@+id/cantidad_actual"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/cantidad_actual_text"
+                android:layout_toRightOf="@id/cantidad_actual_text"
+                android:text="7" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/pago"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/stock"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:id="@+id/aceptaMP"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/nuevo_usado"
+                android:layout_centerHorizontal="true"
+                android:text="Acepta Mercado Pago " />
+
+            <TextView
+                android:id="@+id/modo_entrega"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/nuevo_usado"
+                android:layout_centerHorizontal="true"
+                android:text="Entrega Inmediata " />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/zonaLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/pago"
+            android:layout_centerHorizontal="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ubicacion: " />
+
+            <TextView
+                android:id="@+id/zona"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="La Matanza"
+                android:layout_marginBottom="20dp"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
