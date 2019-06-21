@@ -31,7 +31,8 @@
         android:layout_marginTop="30dp"
         android:layout_marginEnd="67dp"
         android:contentDescription="@string/img_logo"
-        app:srcCompat="@drawable/mercadolibre1" />
+        app:srcCompat="@drawable/mercadolibre1"
+        />
 
     <Button
         android:id="@+id/btn_buscar"
