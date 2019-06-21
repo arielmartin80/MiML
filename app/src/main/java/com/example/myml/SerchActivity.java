@@ -8,15 +8,20 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
+
 import com.squareup.picasso.Picasso;
 
 
 public class SerchActivity extends AppCompatActivity {
 
-    private EditText et1;
+    //private EditText et1;
+
+    @BindView(R.id.et_buscar)
+    public EditText et1;
 
     @BindView(R.id.imageViewML)
-    ImageView imageViewML;
+    public ImageView imageViewML;
 
 
     @Override
@@ -24,9 +29,11 @@ public class SerchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
-        et1 = (EditText)findViewById(R.id.et_buscar);
+        ButterKnife.bind(this);
 
-       // Picasso.with(this).load("https://seeklogo.com/images/M/mercado-libre-logo-15D357DA7B-seeklogo.com.png”).into(imageViewML);
+        //et1 = (EditText)findViewById(R.id.et_buscar);
+
+        Picasso.with(this).load("https://seeklogo.com/images/M/mercado-libre-logo-15D357DA7B-seeklogo.com.png").into(imageViewML);
 
     }
 
