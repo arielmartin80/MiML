@@ -23,7 +23,6 @@ public class SerchActivity extends AppCompatActivity {
     @BindView(R.id.imageViewML)
     public ImageView imageViewML;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -47,8 +47,8 @@
                 android:layout_height="99dp"
                 android:layout_margin="20dp"
                 android:gravity="center"
-                android:onClick="IrADescripcion"
-                android:paddingTop="10dp">
+                android:paddingTop="10dp" >
+
 
                 <ImageView
                     android:id="@+id/imageView"
