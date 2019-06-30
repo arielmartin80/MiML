@@ -9,6 +9,8 @@ public class Articulo {
     public String titulo;
     @SerializedName("thumbnail")
     public String foto;
+    @SerializedName("price")
+    public Double precio;
 
     public String getId() {
         return id;
@@ -33,4 +35,13 @@ public class Articulo {
     public void setFoto(String foto) {
         this.foto = foto;
     }
+
+    public Double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(Double precio) {
+        this.precio = precio;
+    }
+
 }

@@ -18,8 +18,12 @@ public class API {
         return service;
     }
 
-    public static void getArticle(String id, Callback<Articulo> callback) {
+    public static void getArticulo(String id, Callback<Articulo> callback) {
         getAPI().getArticulo(id).enqueue(callback);
+    }
+
+    public static void searchArticulos(String q, Callback <Articulo> callback) {
+        getAPI().searchArticulos(q).enqueue(callback);
     }
 
 }

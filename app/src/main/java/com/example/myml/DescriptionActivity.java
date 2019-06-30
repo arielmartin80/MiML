@@ -19,6 +19,7 @@ public class DescriptionActivity extends AppCompatActivity {
 
     @BindView(R.id.titulo) TextView titulo;
     @BindView(R.id.img) public ImageView img;
+    @BindView(R.id.precio_cantidad) public TextView precio;
 
 
     @Override
@@ -30,16 +31,16 @@ public class DescriptionActivity extends AppCompatActivity {
 
         //final String id = getIntent().getStringExtra("dato");
 
-        API.getArticle("MLA793622581", new Callback<Articulo>() {
+        API.getArticulo("MLA785341543", new Callback<Articulo>() {
 
             @Override
             public void onResponse(Call<Articulo> call, Response<Articulo> response) {
                 if(response.isSuccessful()) {
                     Articulo received = response.body();
                     titulo.setText(received.getTitulo());
-                    //titulo.setText(received.getFoto());
-
                     Picasso.with(getApplicationContext()).load(received.getFoto()).into(img);
+                    precio.setText( (received.getPrecio()).toString() );
+
                 }
             }
 
