@@ -6,9 +6,20 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.myml.API.API;
+import com.example.myml.modelo.Articulo;
+import com.example.myml.modelo.ResultadoBusqueda;
+import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ListActivity extends AppCompatActivity {
 
@@ -24,6 +35,27 @@ public class ListActivity extends AppCompatActivity {
 
         String dato = getIntent().getStringExtra("dato");
         tv_resultado.setText(dato);
+
+        //resultados de la API
+        API.searchArticulos(dato, new Callback<ResultadoBusqueda>() {
+
+            @Override
+            public void onResponse(Call<ResultadoBusqueda> call, Response<ResultadoBusqueda> response) {
+                if(response.isSuccessful()) {
+                    ResultadoBusqueda received = response.body();
+
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResultadoBusqueda> call, Throwable t) {
+                tv_resultado.setText("item incorrecto");
+            }
+
+        });
+
+
 
     }
 

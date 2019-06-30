@@ -1,6 +1,7 @@
 package com.example.myml.API;
 
 import com.example.myml.modelo.Articulo;
+import com.example.myml.modelo.ResultadoBusqueda;
 import com.google.gson.Gson;
 
 import retrofit2.Callback;
@@ -22,7 +23,7 @@ public class API {
         getAPI().getArticulo(id).enqueue(callback);
     }
 
-    public static void searchArticulos(String q, Callback <Articulo> callback) {
+    public static void searchArticulos(String q, Callback <ResultadoBusqueda> callback) {
         getAPI().searchArticulos(q).enqueue(callback);
     }
 
