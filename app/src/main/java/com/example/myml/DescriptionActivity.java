@@ -2,6 +2,7 @@ package com.example.myml;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -20,7 +21,7 @@ public class DescriptionActivity extends AppCompatActivity {
     @BindView(R.id.titulo) TextView titulo;
     @BindView(R.id.img) public ImageView img;
     @BindView(R.id.precio_cantidad) public TextView precio;
-
+    @BindView(R.id.tiempo_garantia) public TextView tiempo_garantia;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +39,10 @@ public class DescriptionActivity extends AppCompatActivity {
                 if(response.isSuccessful()) {
                     Articulo received = response.body();
                     titulo.setText(received.getTitulo());
-                    Picasso.with(getApplicationContext()).load(received.getFoto()).into(img);
+                    String foto = received.getPictures().get(1).getUrl();
+                    Picasso.with(getApplicationContext()).load(foto).into(img);
                     precio.setText( (received.getPrecio()).toString() );
+                    tiempo_garantia.setText(received.getDiasGarantia());
 
                 }
             }

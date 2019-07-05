@@ -69,6 +69,13 @@
                 android:text="Con garantia " />
 
             <TextView
+                android:id="@+id/tiempo_garantia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="30 dias " />
+
+            <TextView
                 android:id="@+id/finaliza1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
