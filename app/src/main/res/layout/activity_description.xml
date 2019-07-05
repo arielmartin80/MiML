@@ -28,6 +28,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
         android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:text="@string/txt_titulo"
         android:textSize="25dp" />
 
@@ -60,23 +61,24 @@
                 />
 
             <TextView
-                android:id="@+id/garantia"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@id/nuevo_usado"
-                android:layout_centerHorizontal="true"
-                android:layout_toRightOf="@id/nuevo_usado"
-                android:text="Con garantia " />
+            android:id="@+id/garantia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/nuevo_usado"
+            android:layout_centerHorizontal="true"
+            android:layout_toRightOf="@id/nuevo_usado"
+            android:text=" " />
 
             <TextView
                 android:id="@+id/tiempo_garantia"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/nuevo_usado"
                 android:layout_centerHorizontal="true"
-                android:text="30 dias " />
+                android:layout_toRightOf="@id/nuevo_usado"
+                android:text=" " />
 
             <TextView
-                android:id="@+id/finaliza1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"

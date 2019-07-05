@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.myml.API.API;
@@ -23,8 +24,12 @@ import retrofit2.Response;
 
 public class ListActivity extends AppCompatActivity {
 
-    @BindView (R.id.tv_resultado)
-    TextView tv_resultado;
+    @BindView (R.id.tv_resultado) TextView tv_resultado;
+    @BindView (R.id.titulo_list) TextView titulo_list;
+    @BindView(R.id.imageView) public ImageView img;
+    @BindView (R.id.precio_list) TextView precio_list;
+
+    Articulo articulo ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +48,10 @@ public class ListActivity extends AppCompatActivity {
             public void onResponse(Call<ResultadoBusqueda> call, Response<ResultadoBusqueda> response) {
                 if(response.isSuccessful()) {
                     ResultadoBusqueda received = response.body();
-
+                    articulo = received.getResults().get(0);
+                    titulo_list.setText( articulo.getTitulo() );
+                    Picasso.with(getApplicationContext()).load(articulo.getFoto()).into(img);
+                    precio_list.setText(articulo.getPrecio().toString());
 
                 }
             }
@@ -56,14 +64,13 @@ public class ListActivity extends AppCompatActivity {
         });
 
 
-
     }
 
     //metodo para ir a la descripcion
     @OnClick(R.id.item1)
     public void IrADescripcion(View view){
         Intent i = new Intent(this, DescriptionActivity.class);
-        i.putExtra("dato", tv_resultado.getText().toString());
+        i.putExtra("dato", articulo.getId());
         startActivity(i);
     }
 

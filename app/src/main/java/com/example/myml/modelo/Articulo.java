@@ -17,7 +17,11 @@ public class Articulo {
     public String foto;
     @SerializedName("price")
     public Double precio;
-    public List<Sale_term> sale_terms;
+    @SerializedName("warranty")
+    public String garantia;
+    public String condition;
+
+
     public List<Picture> pictures;
 
     public String getId() {
@@ -52,12 +56,12 @@ public class Articulo {
         this.precio = precio;
     }
 
-    public List<Sale_term> getSale_terms() {
-        return sale_terms;
+    public String getGarantia() {
+        return garantia;
     }
 
-    public void setSale_terms(List<Sale_term> sale_terms) {
-        this.sale_terms = sale_terms;
+    public void setGarantia(String garantia) {
+        this.garantia = garantia;
     }
 
     public List<Picture> getPictures() {
@@ -68,8 +72,11 @@ public class Articulo {
         this.pictures = pictures;
     }
 
-    public String getDiasGarantia(){
-        String dato = getSale_terms().get(0).value_name;
-        return dato;
+    public String getCondition() {
+        return condition;
+    }
+
+    public void setCondition(String condition) {
+        this.condition = condition;
     }
 }

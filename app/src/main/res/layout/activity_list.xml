@@ -24,7 +24,8 @@
         android:layout_below="@+id/txt_encabezado"
         android:layout_centerHorizontal="true"
         android:text="resultado"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:layout_margin="20dp"/>
 
 
     <ScrollView
@@ -37,9 +38,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:background="#DBDBD6"
             android:gravity="center"
-            >
+            android:orientation="vertical">
 
             <RelativeLayout
                 android:id="@+id/item1"
@@ -47,7 +48,7 @@
                 android:layout_height="99dp"
                 android:layout_margin="20dp"
                 android:gravity="center"
-                android:paddingTop="10dp" >
+                android:paddingTop="10dp">
 
 
                 <ImageView
@@ -63,7 +64,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_toEndOf="@id/imageView"
-                    android:text="@string/txt_titulo" />
+                    android:text="@string/txt_titulo"
+                    android:layout_marginRight="20dp"
+                    />
 
                 <TextView
                     android:id="@+id/precio_list"
@@ -75,7 +78,6 @@
                     android:textSize="22dp" />
 
             </RelativeLayout>
-
 
 
         </LinearLayout>

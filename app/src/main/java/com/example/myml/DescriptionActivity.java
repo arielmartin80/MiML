@@ -21,7 +21,8 @@ public class DescriptionActivity extends AppCompatActivity {
     @BindView(R.id.titulo) TextView titulo;
     @BindView(R.id.img) public ImageView img;
     @BindView(R.id.precio_cantidad) public TextView precio;
-    @BindView(R.id.tiempo_garantia) public TextView tiempo_garantia;
+    @BindView(R.id.garantia) public TextView garantia;
+    @BindView(R.id.nuevo_usado) public TextView nuevo_usado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,19 +31,21 @@ public class DescriptionActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
 
-        //final String id = getIntent().getStringExtra("dato");
+        final String id = getIntent().getStringExtra("dato");
+        //titulo.setText(id);
 
-        API.getArticulo("MLA785341543", new Callback<Articulo>() {
+        API.getArticulo(id, new Callback<Articulo>() {
 
             @Override
             public void onResponse(Call<Articulo> call, Response<Articulo> response) {
                 if(response.isSuccessful()) {
                     Articulo received = response.body();
                     titulo.setText(received.getTitulo());
-                    String foto = received.getPictures().get(1).getUrl();
+                    String foto = received.getPictures().get(0).getUrl();
                     Picasso.with(getApplicationContext()).load(foto).into(img);
                     precio.setText( (received.getPrecio()).toString() );
-                    tiempo_garantia.setText(received.getDiasGarantia());
+                    garantia.setText(received.getGarantia());
+                    nuevo_usado.setText(received.getCondition());
 
                 }
             }
