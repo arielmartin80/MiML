@@ -23,6 +23,9 @@ public class DescriptionActivity extends AppCompatActivity {
     @BindView(R.id.precio_cantidad) public TextView precio;
     @BindView(R.id.garantia) public TextView garantia;
     @BindView(R.id.nuevo_usado) public TextView nuevo_usado;
+    @BindView(R.id.cantidad_vendidos) public TextView cantidad_vendidos;
+    @BindView(R.id.cantidad_actual) public TextView cantidad_actual;
+    @BindView(R.id.cantidad_inicial) public TextView cantidad_inicial;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +49,9 @@ public class DescriptionActivity extends AppCompatActivity {
                     precio.setText( (received.getPrecio()).toString() );
                     garantia.setText(received.getGarantia());
                     nuevo_usado.setText(received.getCondition());
+                    cantidad_inicial.setText(received.getInitial_quantity());
+                    cantidad_vendidos.setText(received.getSold_quantity());
+                    cantidad_actual.setText(received.getAvailable_quantity());
 
                 }
             }

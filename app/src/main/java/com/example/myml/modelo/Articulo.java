@@ -4,8 +4,6 @@ import android.util.Log;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Articulo {
@@ -21,6 +19,9 @@ public class Articulo {
     public String garantia;
     public String condition;
 
+    public String initial_quantity;
+    public String available_quantity;
+    public String sold_quantity;
 
     public List<Picture> pictures;
 
@@ -78,5 +79,29 @@ public class Articulo {
 
     public void setCondition(String condition) {
         this.condition = condition;
+    }
+
+    public String getInitial_quantity() {
+        return initial_quantity;
+    }
+
+    public void setInitial_quantity(String initial_quantity) {
+        this.initial_quantity = initial_quantity;
+    }
+
+    public String getAvailable_quantity() {
+        return available_quantity;
+    }
+
+    public void setAvailable_quantity(String available_quantity) {
+        this.available_quantity = available_quantity;
+    }
+
+    public String getSold_quantity() {
+        return sold_quantity;
+    }
+
+    public void setSold_quantity(String sold_quantity) {
+        this.sold_quantity = sold_quantity;
     }
 }
