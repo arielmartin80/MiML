@@ -15,7 +15,6 @@ import com.example.myml.modelo.Articulo;
 import com.example.myml.modelo.ResultadoBusqueda;
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -34,7 +33,7 @@ public class ListActivity extends AppCompatActivity {
 
     @BindView (R.id.tv_resultado) TextView tv_resultado;
     //@BindView (R.id.titulo_list) TextView titulo_list;
-    //@BindView(R.id.imageView) public ImageView img;
+    //@BindView(R.id.img) public ImageView img;
     //@BindView (R.id.precio_list) TextView precio_list;
 
     Articulo articulo ;
@@ -87,11 +86,11 @@ public class ListActivity extends AppCompatActivity {
     }
 
     //metodo para ir a la descripcion
-    // @OnClick(R.id.item1)
+    //@OnClick(R.id.item1)
     //public void IrADescripcion(View view){
-    //    Intent i = new Intent(this, DescriptionActivity.class);
-     //   i.putExtra("dato", articulo.getId());
-     //   startActivity(i);
+    //   Intent i = new Intent(this, DescriptionActivity.class);
+    //   i.putExtra("dato", articulo.getId());
+    //   startActivity(i);
     //}
 
 
