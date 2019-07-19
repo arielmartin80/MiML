@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.myml.DescriptionActivity;
 import com.example.myml.ListActivity;
@@ -53,8 +54,11 @@ public class ArticulosAdapter extends RecyclerView.Adapter<ArticulosAdapter.View
         @BindView(R.id.precio)
         TextView precio;
 
-       @BindView(R.id.img)
-       public ImageView img;
+        @BindView(R.id.img)
+        public ImageView img;
+
+        @BindView(R.id.item)
+        public View item;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -68,17 +72,23 @@ public class ArticulosAdapter extends RecyclerView.Adapter<ArticulosAdapter.View
         final Articulo articulo = this.articulos.get(position);
         holder.titulo.setText(articulo.getTitulo());
         holder.precio.setText(articulo.getPrecio().toString());
-        //Picasso.with(ArticulosAdapter.this).load(articulo.getFoto()).into(holder.img);
+
+        Picasso.with(v.getContext()).load(articulo.getFoto()).into(holder.img);
+
+        if (position%2  == 0) {
+            holder.item.setBackgroundColor(Color.parseColor("#dccac6"));
+        } else {
+            holder.item.setBackgroundColor(Color.parseColor("#eddddd"));
+        }
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
 
-                //Intent i = new Intent(this, DescriptionActivity.class);
-                //i.putExtra("dato", holder.articulo.getId());
-                //startActivity(i);
-
+                Intent i = new Intent(v.getContext(), DescriptionActivity.class);
+                i.putExtra("dato", holder.articulo.getId());
+                startActivity(i);
             }
         });
 
