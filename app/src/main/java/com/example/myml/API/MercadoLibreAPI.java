@@ -1,6 +1,7 @@
 package com.example.myml.API;
 
 import com.example.myml.modelo.Articulo;
+import com.example.myml.modelo.Descripcion;
 import com.example.myml.modelo.ResultadoBusqueda;
 
 import retrofit2.Call;
@@ -15,5 +16,8 @@ public interface MercadoLibreAPI {
 
     @GET("sites/MLA/search")
     Call <ResultadoBusqueda> searchArticulos(@Query("q") String query);
+
+    @GET("items/{itemId}/description")
+    Call<Descripcion> getArticuloDescription(@Path("itemId") String id);
 
 }

@@ -2,12 +2,14 @@ package com.example.myml;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.EventLogTags;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.myml.API.API;
 import com.example.myml.modelo.Articulo;
+import com.example.myml.modelo.Descripcion;
 import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
@@ -26,6 +28,8 @@ public class DescriptionActivity extends AppCompatActivity {
     @BindView(R.id.cantidad_vendidos) public TextView cantidad_vendidos;
     @BindView(R.id.cantidad_actual) public TextView cantidad_actual;
     @BindView(R.id.cantidad_inicial) public TextView cantidad_inicial;
+
+    @BindView(R.id.descripcion_texto) TextView descripcion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +63,25 @@ public class DescriptionActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<Articulo> call, Throwable t) {
                     titulo.setText("item incorrecto");
+            }
+
+        });
+
+
+        API.getArticuloDescription(id, new Callback<Descripcion>() {
+
+            @Override
+            public void onResponse(Call<Descripcion> call, Response<Descripcion> response) {
+                if(response.isSuccessful()) {
+                    Descripcion received = response.body();
+                    descripcion.setText(received.getPlain_text());
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Descripcion> call, Throwable t) {
+                descripcion.setText("no esta disponible la descripcion");
             }
 
         });

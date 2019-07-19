@@ -1,6 +1,5 @@
 package com.example.myml.adaptadores;
 
-import android.content.Context;
 import android.graphics.Color;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -13,7 +12,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.myml.DescriptionActivity;
-import com.example.myml.ListActivity;
 import com.example.myml.R;
 import com.example.myml.modelo.Articulo;
 import com.squareup.picasso.Picasso;
@@ -23,8 +21,6 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
-import static android.support.v4.content.ContextCompat.startActivity;
 
 public class ArticulosAdapter extends RecyclerView.Adapter<ArticulosAdapter.ViewHolder> {
 
