@@ -73,7 +73,7 @@ public class ArticulosAdapter extends RecyclerView.Adapter<ArticulosAdapter.View
         holder.titulo.setText(articulo.getTitulo());
         holder.precio.setText(articulo.getPrecio().toString());
 
-        Picasso.with(v.getContext()).load(articulo.getFoto()).into(holder.img);
+        Picasso.with(holder.img.getContext()).load(articulo.getFoto()).into(holder.img);
 
         if (position%2  == 0) {
             holder.item.setBackgroundColor(Color.parseColor("#dccac6"));
@@ -87,8 +87,11 @@ public class ArticulosAdapter extends RecyclerView.Adapter<ArticulosAdapter.View
             public void onClick(View v) {
 
                 Intent i = new Intent(v.getContext(), DescriptionActivity.class);
-                i.putExtra("dato", holder.articulo.getId());
-                startActivity(i);
+                i.putExtra("dato", articulo.getId());
+                v.getContext().startActivity(i);
+
+                //String dato = articulo.getId();
+                //Toast.makeText(v.getContext(),dato, Toast.LENGTH_LONG).show();
             }
         });
 
