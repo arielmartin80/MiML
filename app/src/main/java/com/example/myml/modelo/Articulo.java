@@ -1,5 +1,7 @@
 package com.example.myml.modelo;
 
+import android.location.Address;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
@@ -22,6 +24,8 @@ public class Articulo {
     public String sold_quantity;
 
     public List<Picture> pictures;
+
+    public Zona seller_address;
 
     public String getId() {
         return id;
@@ -101,5 +105,13 @@ public class Articulo {
 
     public void setSold_quantity(String sold_quantity) {
         this.sold_quantity = sold_quantity;
+    }
+
+    public Zona getSeller_address() {
+        return seller_address;
+    }
+
+    public void setSeller_address(Zona seller_address) {
+        this.seller_address = seller_address;
     }
 }

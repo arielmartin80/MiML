@@ -13,7 +13,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:text="@string/txt_resultado_buscar"
-        android:textSize="20sp" />
+        android:textSize="25sp" />
 
     <TextView
         android:id="@+id/tv_resultado"
@@ -21,9 +21,12 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/txt_encabezado"
         android:layout_centerHorizontal="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="10dp"
         android:text="resultado"
-        android:textSize="20sp"
-        android:layout_margin="20dp"/>
+        android:textSize="20sp" />
 
 
     <android.support.v7.widget.RecyclerView

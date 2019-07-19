@@ -1,16 +1,19 @@
 package com.example.myml;
 
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.EventLogTags;
-import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.myml.API.API;
 import com.example.myml.modelo.Articulo;
 import com.example.myml.modelo.Descripcion;
+import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
+
+import org.json.JSONObject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -28,6 +31,7 @@ public class DescriptionActivity extends AppCompatActivity {
     @BindView(R.id.cantidad_vendidos) public TextView cantidad_vendidos;
     @BindView(R.id.cantidad_actual) public TextView cantidad_actual;
     @BindView(R.id.cantidad_inicial) public TextView cantidad_inicial;
+    @BindView(R.id.zona) TextView zona;
 
     @BindView(R.id.descripcion_texto) TextView descripcion;
 
@@ -56,7 +60,14 @@ public class DescriptionActivity extends AppCompatActivity {
                     cantidad_inicial.setText(received.getInitial_quantity());
                     cantidad_vendidos.setText(received.getSold_quantity());
                     cantidad_actual.setText(received.getAvailable_quantity());
+                    zona.setText(received.getSeller_address().getZona());
 
+                    /**  Variables de Testing
+                    String lista = new Gson().toJson(received.getSeller_address());
+                    String lista2 = received.getSeller_address().toString();
+                    String message = received.getSeller_address().getZona();
+                    new AlertDialog.Builder(DescriptionActivity.this).setTitle("Testing, OK para continuar").setMessage(message).setPositiveButton("ok", null).show();
+                    */
                 }
             }
 

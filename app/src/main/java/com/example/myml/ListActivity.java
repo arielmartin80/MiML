@@ -47,7 +47,7 @@ public class ListActivity extends AppCompatActivity {
         ResultadoBusqueda lista = new ResultadoBusqueda();
 
         String dato = getIntent().getStringExtra("dato");
-        tv_resultado.setText(dato);
+        tv_resultado.setText("-> "+dato+" <-");
 
         //resultados de la API
         API.searchArticulos(dato, new Callback<ResultadoBusqueda>() {
