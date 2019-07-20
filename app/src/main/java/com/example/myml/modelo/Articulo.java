@@ -4,6 +4,8 @@ import android.location.Address;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.List;
 
 public class Articulo {
@@ -51,7 +53,9 @@ public class Articulo {
         this.foto = foto;
     }
 
-    public Double getPrecio() {
+    public BigDecimal getPrecio() {
+
+        BigDecimal precio = new BigDecimal(this.precio).setScale(0, RoundingMode.UP);
         return precio;
     }
 

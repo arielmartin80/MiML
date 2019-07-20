@@ -3,17 +3,24 @@ package com.example.myml;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.myml.API.API;
+import com.example.myml.adaptadores.ArticulosAdapter;
+import com.example.myml.adaptadores.FotosAdapter;
 import com.example.myml.modelo.Articulo;
 import com.example.myml.modelo.Descripcion;
+import com.example.myml.modelo.Picture;
 import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONObject;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -23,6 +30,11 @@ import retrofit2.Response;
 
 public class DescriptionActivity extends AppCompatActivity {
 
+    private FotosAdapter adapter;
+
+    @BindView(R.id.recyclerHorizontal)
+    RecyclerView recyclerView;
+
     @BindView(R.id.titulo) TextView titulo;
     @BindView(R.id.img) public ImageView img;
     @BindView(R.id.precio_cantidad) public TextView precio;
@@ -30,7 +42,6 @@ public class DescriptionActivity extends AppCompatActivity {
     @BindView(R.id.nuevo_usado) public TextView nuevo_usado;
     @BindView(R.id.cantidad_vendidos) public TextView cantidad_vendidos;
     @BindView(R.id.cantidad_actual) public TextView cantidad_actual;
-    @BindView(R.id.cantidad_inicial) public TextView cantidad_inicial;
     @BindView(R.id.zona) TextView zona;
 
     @BindView(R.id.descripcion_texto) TextView descripcion;
@@ -56,16 +67,23 @@ public class DescriptionActivity extends AppCompatActivity {
                     Picasso.with(getApplicationContext()).load(foto).into(img);
                     precio.setText( (received.getPrecio()).toString() );
                     garantia.setText(received.getGarantia());
-                    nuevo_usado.setText(received.getCondition());
-                    cantidad_inicial.setText(received.getInitial_quantity());
+                    String estado = received.getCondition();
+
+                    if(estado.equals("new")) {
+                        nuevo_usado.setText("NUEVO");
+                    }else{
+                        nuevo_usado.setText("USADO");
+                    }
                     cantidad_vendidos.setText(received.getSold_quantity());
                     cantidad_actual.setText(received.getAvailable_quantity());
                     zona.setText(received.getSeller_address().getZona());
 
-                    /**  Variables de Testing
-                    String lista = new Gson().toJson(received.getSeller_address());
+                    configurarRecyclerView(received.getPictures());
+
+                    /*  Variables de Testing
+                    String lista = new Gson().toJson(received.getPictures().toString());
                     String lista2 = received.getSeller_address().toString();
-                    String message = received.getSeller_address().getZona();
+                    String message = lista;
                     new AlertDialog.Builder(DescriptionActivity.this).setTitle("Testing, OK para continuar").setMessage(message).setPositiveButton("ok", null).show();
                     */
                 }
@@ -100,6 +118,16 @@ public class DescriptionActivity extends AppCompatActivity {
 
 
 
+    }
+
+
+    private void configurarRecyclerView(List<Picture> fotos) {
+
+        RecyclerView.LayoutManager lm = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false);
+        recyclerView.setLayoutManager(lm);
+
+        adapter = new FotosAdapter(fotos);
+        recyclerView.setAdapter(adapter);
     }
 
 

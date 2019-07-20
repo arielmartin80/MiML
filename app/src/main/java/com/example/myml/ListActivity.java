@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.myml.API.API;
@@ -47,7 +48,7 @@ public class ListActivity extends AppCompatActivity {
         ResultadoBusqueda lista = new ResultadoBusqueda();
 
         String dato = getIntent().getStringExtra("dato");
-        tv_resultado.setText("-> "+dato+" <-");
+        tv_resultado.setText("\" "+dato+" \"");
 
         //resultados de la API
         API.searchArticulos(dato, new Callback<ResultadoBusqueda>() {
